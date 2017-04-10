@@ -65,4 +65,14 @@ public class City implements Serializable {
         this.cityName = cityName;
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "id=" + id +
+                ", provinceId=" + provinceId +
+                ", cityName='" + cityName + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

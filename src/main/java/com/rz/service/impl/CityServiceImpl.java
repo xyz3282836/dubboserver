@@ -1,35 +1,33 @@
-package com.rz.dubbo.impl;
+package com.rz.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.rz.dao.CityDao;
 import com.rz.entity.City;
-import com.rz.dubbo.CityDubboService;
+import com.rz.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by ruizhouliu on 2017/2/13.
  */
-@Service(version="1.0.0")
-public class CityDubboServiceImpl implements CityDubboService {
+@Service
+public class CityServiceImpl implements CityService {
 
     @Autowired
     private CityDao cityDao;
 
-    @Override
     public City findCityByName(String cityName) {
         return cityDao.findByName(cityName);
     }
 
-    @Override
-    public List<City> findAllCity() {
+    public List<City> findAllCity(){
         return cityDao.findAllCity();
     }
 
-    @Override
     public City findCityById(Long id) {
-        return cityDao.findById(id);
+        return new City(1L,2L,"fsdf","sdfsdfsd");
+//        return cityDao.findById(id);
     }
 
     @Override
@@ -46,7 +44,5 @@ public class CityDubboServiceImpl implements CityDubboService {
     public Long deleteCity(Long id) {
         return cityDao.deleteCity(id);
     }
-
-
 
 }
